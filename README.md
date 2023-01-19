@@ -10,6 +10,7 @@
 
 ㄧ、初始化專案、安裝必要套件
 二、編寫測試的 config 檔
+三、撰寫第一隻測試程式
 四、運行測試程式確認結果符合預期
 五、VSCode 的 Vitest 外掛
 六、一些建議
@@ -17,7 +18,7 @@
 
 ### ㄧ、初始化專案、安裝必要套件
 
-> 筆者 node.js 的 version 為 18，建議選擇較新的版本，否則安裝套件的過程會遇到一些問題。
+> 筆者 node.js 的版本為 18.13.0，建議選擇較新的版本，否則安裝套件的過程會遇到一些問題。
 
 這邊我們參考 Vuetify 官方文件的指令 `yarn create vuetify` 來建立專案。
 
@@ -110,7 +111,7 @@ defineProps<{
 
 #### ➤ 新增「src/components/__test__/HelloWorld.spec.ts」作為測試程式
 
-在 components 底下建立「__test__」的資料夾放置測試程式，我們透過它來確認 HelloWorld 頁面是否有收到 props 的 msg，並如預期被渲染。
+在 components 資料夾下建立「 __test__ 」的資料夾放置測試程式，我們透過它來確認 HelloWorld 頁面是否有收到 props 的 msg，並如預期被渲染。
 ```ts
 import { describe, it, expect } from "vitest";
 import { mount } from "@vue/test-utils";
@@ -173,7 +174,7 @@ describe("HelloWorld", () => {
 
 #### ➤ 如果遇到了「Type 'Plugin' is not assignable to type 'PluginOption'」這類的錯誤
 
-通常是因為安裝了多個 Vite 的版本所導致的，建議先將根目錄下的「node_modules」以及「.lock」全部移除，然後再重新安裝套件。x
+通常是因為安裝了多個 Vite 的版本所導致的，建議先將根目錄下的「node_modules」以及「.lock」全部移除，然後再重新安裝套件。
 
 > 筆者是在 nvm 切換 node.js 版本時遇到這個問題的。
 
